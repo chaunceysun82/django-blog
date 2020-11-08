@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, Http404
-from django.template import loader
+# from django.template import loader
 from blogging.models import Post
 
 
