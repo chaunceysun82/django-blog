@@ -26,7 +26,7 @@ class CategoryTestCase(TestCase):
 
 
 class FrontEndTestCase(TestCase):
-    fixture = ['blogging_test_fixture.json',]
+    fixtures = ['blogging_test_fixture.json',]
 
     def setUp(self):
         self.now = datetime.datetime.utcnow().replace(tzinfo=utc)
