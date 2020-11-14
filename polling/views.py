@@ -11,12 +11,12 @@ from django.views.generic.detail import DetailView
 
 class PollListView(ListView):
     model = Poll
-    template_name = 'polling/list.html'
+    template_name = "polling/list.html"
 
 
 class PollDetailView(DetailView):
     model = Poll
-    template_name = 'polling/detail.html'
+    template_name = "polling/detail.html"
 
     def post(self, request, *args, **kwargs):
         poll = self.get_object()
@@ -27,8 +27,8 @@ class PollDetailView(DetailView):
             poll.score -= 1
         poll.save()
 
-        context = {'object': poll}
-        return render(request, 'polling/detail.html', context)
+        context = {"object": poll}
+        return render(request, "polling/detail.html", context)
 
 
 # def detail_view(request, poll_id):
