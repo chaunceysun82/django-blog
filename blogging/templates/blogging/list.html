@@ -1,4 +1,7 @@
 {% extends "base.html" %}{% block content %}
+    <nav style="padding: .5rem 0; font-size: 2em; background-color: #e2924863; text-align:center; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+        <a id="add-blog" href="/add/">Add A Blog</a>
+    </nav>
     <h1>Recent Posts</h1>
     {% comment %} here is where the query happens {% endcomment %}
     {% for post in post_list %}
