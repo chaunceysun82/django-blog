@@ -16,8 +16,20 @@ Including another URLconf
 from django.contrib import admin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path, include  # <-- Make sure you have both of these imports.
+from rest_framework import routers
+from blogging import views
+
+
+router = routers.DefaultRouter()
+router.register(r'users', views.UserViewSet)
+router.register(r'groups', views.GroupViewSet)
+router.register(r'posts', views.PostViewSet)
+router.register(r'categories', views.CategoryViewSet)
+
 
 urlpatterns = [
+    path("api/", include(router.urls)),
+    path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
     path("polling/", include("polling.urls")),  # <-- Add this
     path("admin/", admin.site.urls),
     path("accounts/", include("allauth.urls")),
