@@ -19,7 +19,6 @@ from django.urls import path, include  # <-- Make sure you have both of these im
 from rest_framework import routers
 from blogging import views
 
-
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
@@ -27,6 +26,8 @@ router.register(r'posts', views.PostViewSet)
 router.register(r'categories', views.CategoryViewSet)
 
 
+# Wire up our API using automatic URL routing.
+# Additionally, we include login URLS for the browsable API.
 urlpatterns = [
     path("api/", include(router.urls)),
     path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
